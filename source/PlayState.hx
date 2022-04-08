@@ -176,6 +176,7 @@ class PlayState extends MusicBeatState
 
 	var botplaySine:Float = 0;
 	var botplayTxt:FlxText;
+	private var creditTxt:FlxText;
 
 	public var iconP1:HealthIcon;
 	public var iconP2:HealthIcon;
@@ -917,6 +918,20 @@ class PlayState extends MusicBeatState
 		if(ClientPrefs.downScroll) {
 			botplayTxt.y = timeBarBG.y - 78;
 		}
+		
+		creditTxt = new FlxText(876, 648, 348);
+        creditTxt.text = "OPTIMIZED BY/nJOÃO OTIMIZAÇÕES";
+        creditTxt.setFormat(Paths.font("vcr.ttf"), 30, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
+        creditTxt.scrollFactor.set();
+        add(creditTxt);
+
+		if(ClientPrefs.downScroll) {
+			botplayTxt.y = timeBarBG.y - 78;
+		}
+
+		if(ClientPrefs.downScroll) {
+			creditTxt.y = 148;
+		}
 
 		strumLineNotes.cameras = [camHUD];
 		grpNoteSplashes.cameras = [camHUD];
@@ -927,6 +942,7 @@ class PlayState extends MusicBeatState
 		iconP2.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
 		botplayTxt.cameras = [camHUD];
+		creditTxt.cameras = [camHUD];
 		timeBar.cameras = [camHUD];
 		timeBarBG.cameras = [camHUD];
 		timeTxt.cameras = [camHUD];
